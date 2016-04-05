@@ -25,7 +25,7 @@ public class Update {
                     "AND x.indisprimary";
             resultSet = statement.executeQuery(queryPK);
             while (resultSet.next())
-                primaryKey += resultSet.getString(1) + ",";
+                primaryKey += resultSet.getString(1).substring(tableName.length() + 1, resultSet.getString(1).length() - 3) + ","; //Название поля первичного ключа
             primaryKey = primaryKey.substring(0, primaryKey.length() - 1);
         } catch (SQLException e) {
             e.printStackTrace();
